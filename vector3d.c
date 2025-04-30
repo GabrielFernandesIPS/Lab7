@@ -36,22 +36,23 @@ void vector3dPrint(PtVector3d vec, bool lineBreakAfter) {
 }
 
 int vector3dX(PtVector3d vec, double *x) {
-    
+    *x = vec->x;
     return VECTOR3D_OK;
 }
 
 int vector3dY(PtVector3d vec, double *y) {
-    
+    *y = vec->y;
     return VECTOR3D_OK;
 }
 
 int vector3dZ(PtVector3d vec, double *z) {
-    
+    *z = vec->z;
     return VECTOR3D_OK;
 }
 
 int vector3dDestroy(PtVector3d *pVec) {
     
+    free(*pVec);
     return VECTOR3D_OK;
 }
 
