@@ -5,13 +5,34 @@
 #include <math.h>
 
 /* TODO: -- define data structure here -- */ 
+typedef struct vector3d
+{
+    /* data */
+    double x;
+    double y;
+    double z;
+} Vector3d;
+
 
 PtVector3d  vector3dCreate(double x, double y, double z) {
-    return NULL;
+    PtVector3d v = (PtVector3d) malloc(sizeof(Vector3d));
+
+    if(v == NULL) return NULL;
+
+    v->x = x;
+    v->y = y;
+    v->z = z;
+
+    return v;
 }
 
 void vector3dPrint(PtVector3d vec, bool lineBreakAfter) {
-    
+    if(lineBreakAfter == true){
+        printf("<%.1f, %.1f, %.1f>\n", vec->x, vec->y, vec->z);
+    } else{
+        printf("<%.1f, %.1f, %.1f>", vec->x, vec->y, vec->z);
+    }
+
 }
 
 int vector3dX(PtVector3d vec, double *x) {
